@@ -1,5 +1,9 @@
 const { Pool, types } = require("pg");
-require("dotenv").config();
+const path = require("path");
+
+require("dotenv").config({
+    path: path.resolve(__dirname, "../../.env")
+});
 // Return PostgreSQL DATE values as YYYY-MM-DD strings
 types.setTypeParser(1082, (value) => value);
 
